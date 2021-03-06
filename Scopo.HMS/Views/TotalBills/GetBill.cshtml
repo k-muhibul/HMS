@@ -1,0 +1,195 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    double totalwithvat = (double)Model.TotalBill + ((double)Model.TotalBill * 0.15);
+}
+@model Scopo.HMS.ViewModels.TotalBillViewModel
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <div class="row">
+        <!-- BEGIN INVOICE -->
+        <div class="col-xs-12">
+            <div class="grid invoice">
+                <div class="grid-body">
+                    <div class="invoice-title">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <img src="http://vergo-kertas.herokuapp.com/assets/img/logo.png" alt="" height="35">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2>
+                                    Bill<br>
+                                    <span class="small">Patient Code @Model.PatientCode</span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <address>
+                                <strong>Billed To:</strong><br>
+                                @Model.PatientName<br>
+                                @Model.PatientEmail<br>
+                                <abbr title="Phone">P:</abbr> @Model.PatientPhone
+                            </address>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <address>
+                                <strong>Consulted by:</strong><br>
+                                @Model.ConsultantName<br>
+                                <br>
+                                Wallaby Way, Sidney<br>
+
+                            </address>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <address>
+                                <strong>Reciept Date:</strong><br>
+                                @System.DateTime.Now.ToShortDateString()
+                            </address>
+                        </div>
+                    </div>
+                    <div class="row mt-md-4">
+                        <div class="col-md-12">
+                            <h3>Doctor Bill Summary</h3>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="line">
+
+                                        <td class="text-center"><strong>Visit Date</strong></td>
+                                        <td class="text-center"><strong>Amount</strong></td>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="text-md-center">
+                                    @foreach (var item in Model.doctorsBillsViewModels)
+                                    {
+                                        <tr>
+
+
+                                            <td>@item.VisitDate.ToShortDateString()</td>
+                                            <td>@item.Amount</td>
+                                        </tr>
+
+                                    }
+                                   
+
+                                </tbody>
+                            </table>
+                            <span>  Total Doctor Bill:  BDT @Model.DoctorBillAmount</span>
+                        </div>
+                    </div>
+                    <div class="row mt-md-4">
+                        <div class="col-md-12">
+                            <h3>Pharmacy Bill Summary</h3>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="line">
+
+                                        <td class="text-center"><strong>Medicine Name</strong></td>
+                                        <td class="text-center"><strong>Quantity</strong></td>
+                                        <td class="text-center"><strong>Amount</strong></td>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="text-md-center">
+                                    @foreach (var item in Model.pharmacyBillsViewModels)
+                                    {
+                                        <tr>
+
+
+                                            <td >@item.MedicineName</td>
+                                            <td>@item.Quantity</td>
+                                            <td>@item.Amount</td>
+
+                                        </tr>
+
+                                    }
+                                
+
+                                </tbody>
+                            </table>
+                            <span>  Total Parmacy Bill:  BDT @Model.PharmacyBillAmount</span>
+                        </div>
+                    </div>
+
+                    <div class="row mt-md-4">
+                        <div class="col-md-12">
+                            <h3>Lab Tests Bill Summary</h3>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr class="line">
+                                       
+                                        <td class="text-center"><strong>Test Name</strong></td>
+                                        
+                                        <td class="text-center"><strong>Amount</strong></td>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="text-md-center">
+                                    @foreach (var item in Model.investigationBillViewModels)
+                                    {
+                                        <tr>
+
+
+                                            <td>@item.LabTestName</td>
+                                            
+                                            <td>@item.Amount</td>
+
+                                        </tr>
+
+                                    }
+                                   
+
+
+                                </tbody>
+                            </table>
+                            <span> Total Lab Test Bill:  BDT @Model.InvestigationBillAmount</span>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
+                    <div class="row">
+                        <div class="col-md-12 text-right identity">
+                            <p>Total Bill Without VAT<br>BDT @Model.TotalBill</p>
+                            <p>Total Bill with (15%VAT)<br><strong>BDT @totalwithvat</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END INVOICE -->
+    </div>
+</div>

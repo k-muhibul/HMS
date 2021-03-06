@@ -1,0 +1,49 @@
+﻿@model Scopo.HMS.Models.Investigation
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Investigation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="InvestigationID" />
+            <div class="form-group">
+                <label asp-for="AdmissionID" class="control-label"></label>
+                <input asp-for="AdmissionID" class="form-control" />
+                <span asp-validation-for="AdmissionID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LabTestID" class="control-label"></label>
+                <input asp-for="LabTestID" class="form-control" />
+                <span asp-validation-for="LabTestID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InvestigationDate" class="control-label"></label>
+                <input asp-for="InvestigationDate" class="form-control" />
+                <span asp-validation-for="InvestigationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

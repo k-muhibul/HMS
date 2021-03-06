@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Scopo.HMS.Models.Room>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+
+<div class="row mt-md-4 mb-md-2">
+    <a class="col-md-2 btn btn-primary" asp-action="Create">Create New Room</a>
+</div>
+
+
+<div class="row">
+    <table class="table table-bordered">
+        <thead class="text-md-center">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rent)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.IsOccupied)
+                </th>
+                <th style="color:grey;">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="text-md-center">
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rent)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsOccupied)
+                </td>
+                <td>
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="text-decoration:none;" asp-action="Edit" asp-route-id="@item.RoomID"><span><i style="color:grey;" class="far fa-edit"></i></span></a> |
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Details" style="text-decoration:none;margin-left:5px;" asp-action="Details" asp-route-id="@item.RoomID"><span><i style="color:grey;" class="fas fa-info"></i> </span></a> |
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" style="text-decoration:none;margin-left:5px;" asp-action="Delete" asp-route-id="@item.RoomID"><span><i style="color:grey;" class="far fa-trash-alt"></i> </span></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

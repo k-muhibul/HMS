@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Scopo.HMS.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="row mt-md-4 mb-md-2">
+
+    <a class="col-md-2 btn btn-primary" asp-action="Create">New Doctor Entry</a>
+</div>
+
+<div class="row">
+    <table class="table table-bordered text-md-center">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Qualification)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MinVisitFee)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OutdoorFee)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Specialization)
+                </th>
+                <th style="color:grey">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qualification)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinVisitFee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OutdoorFee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialization)
+                </td>
+                <td>
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="text-decoration:none;" asp-action="Edit" asp-route-id="@item.DoctorID"><span><i style="color:grey;" class="far fa-edit"></i></span></a> |
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Details" style="text-decoration:none;margin-left:5px;" asp-action="Details" asp-route-id="@item.DoctorID"><span><i style="color:grey;" class="fas fa-info"></i> </span></a> |
+                    <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" style="text-decoration:none;margin-left:5px;" asp-action="Delete" asp-route-id="@item.DoctorID"><span><i style="color:grey;" class="far fa-trash-alt"></i> </span></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,108 @@
+﻿@model Scopo.HMS.ViewModels.InvestigationBillViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Investigation</h4>
+<hr />
+
+
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="exampleModal" onload="myfunction()" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-toggle="modal">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Enter Investigation   Details</h5>
+                <a href="/Investigations/Index" class="btn btn-secondary btn-close"></a>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="AdmissionID" class="control-label">Patient Code</label>
+                                <select asp-for="AdmissionID" class="form-control" asp-items="ViewBag.AdmissionID">
+                                    <option value="">Select Patient Code</option>
+                                </select>
+                                <span asp-validation-for="AdmissionID" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LabTestID" class="control-label">Test Name</label>
+                                <select asp-for="LabTestID" class="form-control" asp-items="ViewBag.LabTestList">
+                                    <option value="">Select Test</option>
+                                </select>
+                                <span asp-validation-for="LabTestID" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="InvestigationDate" class="control-label"></label>
+                                <input asp-for="InvestigationDate" class="form-control" />
+                                <span asp-validation-for="InvestigationDate" class="text-danger"></span>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="/Investigations/Index" class="btn btn-secondary">Close</a>
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+               
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<button style="display:none" id="linkid" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="mdo">Open modal</button>
+<script>
+    window.onload = function () {
+        document.getElementById("linkid").click();
+    };
+    var exampleModal = document.getElementById('exampleModal')
+    console.log("Onload");
+
+    function myfunction() {
+        var modalTitle = exampleModal.querySelector('.modal-title')
+        var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'New message to ' + recipient
+        modalBodyInput.value = recipient
+    }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,146 @@
+﻿@model Scopo.HMS.Models.Admission
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Admission</h4>
+<hr />
+
+
+
+
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="exampleModal" onload="myfunction()" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-toggle="modal">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Enter Admission Details</h5>
+                <a href="/Admissions/Index" class="btn btn-secondary btn-close"></a>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="RoomID" class="control-label">Room</label>
+                                <select asp-for="RoomID" class="form-control" asp-items="ViewBag.roomList">
+                                    <option value="">Select Room</option>
+                                </select>
+                                <span asp-validation-for="RoomID" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PatientCode" class="control-label"></label>
+                                <input asp-for="PatientCode" class="form-control" />
+                                <span asp-validation-for="PatientCode" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="AdmissionDate" class="control-label">Admission Date</label>
+                                <input asp-for="AdmissionDate" class="form-control" />
+                                <span asp-validation-for="AdmissionDate" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ReleaseDate" class="control-label">Release Date</label>
+                                <input asp-for="ReleaseDate" class="form-control" />
+                                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PatientStatus" class="control-label">Patient Status</label>
+                                <input asp-for="PatientStatus" class="form-control" />
+                                <span asp-validation-for="PatientStatus" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="DoctorID" class="control-label">Consultant Name</label>
+                                <select asp-for="DoctorID" class="form-control" asp-items="ViewBag.doctorList">
+                                    <option value="">Select Consultant Name</option>
+                                </select>
+                                <span asp-validation-for="DoctorID" class="text-danger"></span>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="/Admissions/Index" class="btn btn-secondary">Close</a>
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<button style="display:none" id="linkid" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="mdo">Open modal</button>
+<script>
+    window.onload = function () {
+        document.getElementById("linkid").click();
+    };
+    var exampleModal = document.getElementById('exampleModal')
+    console.log("Onload");
+
+    function myfunction() {
+        var modalTitle = exampleModal.querySelector('.modal-title')
+        var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'New message to ' + recipient
+        modalBodyInput.value = recipient
+    }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

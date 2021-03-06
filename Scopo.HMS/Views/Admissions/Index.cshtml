@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Scopo.HMS.ViewModels.AdmissionViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<div class="row mt-md-4 mb-md-2">
+
+    <a class="col-md-2 btn btn-primary" asp-action="Create">Create New Admission</a>
+</div>
+<div class="row">
+    <table class="table table-bordered">
+        <thead class="text-md-center">
+            <tr>
+                <th>
+                    Room
+                </th>
+                <th>
+                    
+                    Patient Name 
+                </th><th>
+                    
+                Patient Code
+                </th>
+                <th>
+                    
+                    Consultant Name
+                </th>
+                <th>
+                    
+                    Patient Status
+                </th>
+                <th>
+                    
+                    Admission Date
+                </th>
+                <th>
+                    Released Date
+                </th>
+                <th style="color:grey">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="text-md-center">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Room)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PatientName)
+                    </td><td>
+                        @Html.DisplayFor(modelItem => item.PatientCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ConsultantName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PatientStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdmissionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReleaseDate)
+                    </td>
+                    <td>
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" style="text-decoration:none;" asp-action="Edit" asp-route-id="@item.AdmissionID"><span><i style="color:grey;" class="far fa-edit"></i></span></a> |
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Details" style="text-decoration:none;margin-left:5px;" asp-action="Details" asp-route-id="@item.AdmissionID"><span><i style="color:grey;" class="fas fa-info"></i> </span></a> |
+                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" style="text-decoration:none;margin-left:5px;" asp-action="Delete" asp-route-id="@item.AdmissionID"><span><i style="color:grey;" class="far fa-trash-alt"></i> </span></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
