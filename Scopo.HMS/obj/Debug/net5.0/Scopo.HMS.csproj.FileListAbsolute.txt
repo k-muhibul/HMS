@@ -456,3 +456,4 @@ C:\Users\User\source\repos\ScopoHMS\Scopo.HMS\obj\Debug\net5.0\Scopo.HMS.dll
 C:\Users\User\source\repos\ScopoHMS\Scopo.HMS\obj\Debug\net5.0\ref\Scopo.HMS.dll
 C:\Users\User\source\repos\ScopoHMS\Scopo.HMS\obj\Debug\net5.0\Scopo.HMS.pdb
 C:\Users\User\source\repos\ScopoHMS\Scopo.HMS\obj\Debug\net5.0\Scopo.HMS.genruntimeconfig.cache
+C:\Users\Anik\Documents\GitHub\HMS\Scopo.HMS\obj\Debug\net5.0\Scopo.HMS.pdb

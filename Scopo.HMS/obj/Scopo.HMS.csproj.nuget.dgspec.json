@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\ScopoHMS\\Scopo.HMS\\Scopo.HMS.csproj": {}
+    "C:\\Users\\Anik\\Documents\\GitHub\\HMS\\Scopo.HMS\\Scopo.HMS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\ScopoHMS\\Scopo.HMS\\Scopo.HMS.csproj": {
+    "C:\\Users\\Anik\\Documents\\GitHub\\HMS\\Scopo.HMS\\Scopo.HMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\ScopoHMS\\Scopo.HMS\\Scopo.HMS.csproj",
+        "projectUniqueName": "C:\\Users\\Anik\\Documents\\GitHub\\HMS\\Scopo.HMS\\Scopo.HMS.csproj",
         "projectName": "Scopo.HMS",
-        "projectPath": "C:\\Users\\User\\source\\repos\\ScopoHMS\\Scopo.HMS\\Scopo.HMS.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\ScopoHMS\\Scopo.HMS\\obj\\",
+        "projectPath": "C:\\Users\\Anik\\Documents\\GitHub\\HMS\\Scopo.HMS\\Scopo.HMS.csproj",
+        "packagesPath": "C:\\Users\\Anik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anik\\Documents\\GitHub\\HMS\\Scopo.HMS\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,8 +28,7 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net50": {
             "projectReferences": {}
           }
         },
@@ -37,8 +39,7 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net50": {
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
@@ -73,25 +74,12 @@
               "version": "[5.0.2, )"
             }
           },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
         }
       }
     }
